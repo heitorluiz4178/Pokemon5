@@ -1,0 +1,28 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:linear-gradient(135deg,#10162d,#25335c);font-family:Arial,sans-serif;color:#fff;display:flex;justify-content:center;align-items:center;padding:18px}
+.game-container{width:min(1100px,100%);box-shadow:0 20px 60px #0006}
+.topbar{background:#10172d;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-radius:18px 18px 0 0;gap:15px}
+.logo{display:flex;align-items:center;gap:10px}.logo h1{font-size:24px}.logo small{color:#aeb9d6}
+.mini-ball{width:38px;height:38px;border:3px solid #111;border-radius:50%;background:linear-gradient(#e73543 0 45%,#111 45% 55%,#fff 55%);position:relative}
+.mini-ball:after{content:"";position:absolute;width:10px;height:10px;border:3px solid #111;background:#fff;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.hud{display:flex;gap:9px}.hud>div{background:#293556;padding:7px 12px;border-radius:9px;min-width:95px}.hud small{display:block;color:#aeb9d6;font-size:10px}.hud strong{font-size:17px}
+.status{display:flex;justify-content:space-around;background:#19223f;padding:9px;font-size:13px;gap:8px;flex-wrap:wrap}
+.game{height:460px;position:relative;overflow:hidden;border-left:5px solid #0d1224;border-right:5px solid #0d1224;background:linear-gradient(#70c8f5 0 64%,#83c765 64% 100%)}
+.game.night{background:linear-gradient(#17234d 0 64%,#46653c 64% 100%)}.game.desert{background:linear-gradient(#f3c477 0 64%,#bf8738 64% 100%)}.game.snow{background:linear-gradient(#9edcf2 0 64%,#dbeaf0 64% 100%)}
+.cloud{position:absolute;width:100px;height:28px;background:#fff9;border-radius:30px;top:55px}.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}.cloud:before{width:45px;height:45px;left:15px;top:-18px}.cloud:after{width:55px;height:55px;right:8px;top:-25px}.cloud1{left:15%;animation:cloud 18s linear infinite}.cloud2{left:65%;top:110px;transform:scale(.7);animation:cloud 24s linear infinite}
+@keyframes cloud{from{margin-left:0}to{margin-left:-220px}}
+.ground{position:absolute;bottom:0;width:100%;height:11px;background:#26361d;z-index:5}
+.player{position:absolute;left:100px;bottom:11px;width:72px;height:72px;z-index:10}.player img{width:100%;height:100%;image-rendering:pixelated}
+.player.jump{animation:jump .68s cubic-bezier(.2,.8,.35,1)}.player.double{animation:jump2 .95s cubic-bezier(.2,.8,.35,1)}
+@keyframes jump{0%{bottom:11px}45%{bottom:175px}100%{bottom:11px}}
+@keyframes jump2{0%{bottom:11px}35%{bottom:150px}55%{bottom:250px}100%{bottom:11px}}
+.enemy{position:absolute;left:-90px;bottom:11px;width:72px;height:72px;z-index:9}.enemy img{width:100%;height:100%;image-rendering:pixelated}
+.pokeball{position:absolute;left:-50px;bottom:145px;width:43px;height:43px;z-index:8}.pokeball img{width:100%;height:100%;image-rendering:pixelated}
+.message{position:absolute;top:17px;left:50%;transform:translateX(-50%);background:#0c1226cc;padding:9px 17px;border-radius:12px;z-index:20;min-width:270px;text-align:center;font-size:14px}
+.screen{position:absolute;inset:0;background:#070b18aa;z-index:50;display:grid;place-items:center}.hidden{display:none}
+.card{background:#121a35;border:1px solid #ffffff22;border-radius:18px;padding:30px;text-align:center;width:min(430px,90%);box-shadow:0 20px 50px #0007}.card h2{margin-bottom:12px}.card p{color:#cbd4ea;margin:9px 0;line-height:1.5}
+button{border:0;border-radius:10px;padding:11px 18px;background:#f4ce18;color:#171717;font-weight:bold;cursor:pointer;margin-top:12px}button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+footer{background:#10172d;border-radius:0 0 18px 18px;padding:12px 17px;display:flex;justify-content:space-between;align-items:center;color:#c9d2e8;font-size:13px}footer button{margin:0;background:#334365;color:white}
+.player.hit{animation:hit .28s ease}@keyframes hit{50%{transform:translateX(-10px) rotate(-7deg);filter:brightness(1.8)}}
+.pokeball.collect{animation:collect .4s ease}@keyframes collect{to{transform:translateY(-35px) scale(1.5);opacity:0}}
+@media(max-width:720px){.topbar{flex-direction:column}.hud{width:100%}.hud>div{flex:1;min-width:0}.game{height:410px}footer{flex-direction:column;gap:8px}}

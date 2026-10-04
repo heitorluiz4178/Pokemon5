@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Run - Evolução</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-container">
+    <header class="topbar">
+      <div class="logo"><span class="mini-ball"></span><div><h1>Pokémon Run</h1><small>Evolution Challenge</small></div></div>
+      <div class="hud">
+        <div><small>VIDAS</small><strong id="vidas"></strong></div>
+        <div><small>PONTOS</small><strong id="pontos">0</strong></div>
+        <div><small>RECORDE</small><strong id="recorde">0</strong></div>
+      </div>
+    </header>
+
+    <section class="status">
+      <span id="cenario">🌳 Floresta</span>
+      <span id="inimigo">👾 Zubat</span>
+      <span id="pokemonStatus">⚡ Pikachu</span>
+      <span id="duploPulo">🔒 Duplo pulo: 600 pts</span>
+    </section>
+
+    <section id="game" class="game forest">
+      <div class="cloud cloud1"></div><div class="cloud cloud2"></div>
+      <div id="player" class="player">
+        <img id="playerImg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif" alt="Pikachu">
+      </div>
+      <div id="enemy" class="enemy">
+        <img id="enemyImg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/41.gif" alt="Zubat">
+      </div>
+      <div id="pokeball" class="pokeball">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokébola">
+      </div>
+      <div class="ground"></div>
+      <div id="message" class="message">Prepare-se!</div>
+
+      <div id="startScreen" class="screen">
+        <div class="card">
+          <h2>⚡ Pokémon Run</h2>
+          <p>Corra, pule, pegue Pokébolas e evolua seu Pokémon!</p>
+          <p><b>Espaço / ↑</b> Pular &nbsp; <b>← →</b> Mover</p>
+          <button id="startBtn">COMEÇAR JOGO</button>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="screen hidden">
+        <div class="card">
+          <h2>💥 GAME OVER</h2>
+          <p>Pontuação: <b id="finalPontos">0</b></p>
+          <p>Recorde: <b id="finalRecorde">0</b></p>
+          <button id="restartBtn">JOGAR NOVAMENTE</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>🎮 Espaço/↑ = pular • ← → = mover • Duplo pulo aos 600 pontos</span>
+      <button id="soundBtn">🔊 Som</button>
+    </footer>
+
+    <audio id="meuSom" src="musica.mp3" loop></audio>
+    <audio id="somDano" src="dano.mp3"></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
